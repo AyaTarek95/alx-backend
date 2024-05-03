@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
+""" simple pagintation """
+
 import csv
 import math
 from typing import List
-"""Simple pagination"""
 
 
 def index_range(page: int, page_size: int) -> tuple:
-    """ retrn start, end indeces"""
+    """ Returns a tuple with the start and the end index of a page """
     start = (page - 1) * page_size
     end = start + page_size
     return (start, end)
@@ -32,7 +33,7 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        """Simple pagination"""
+        """ get page rows """
         assert isinstance(page, int) and page > 0
         assert isinstance(page_size, int) and page_size > 0
         start, end = index_range(page, page_size)

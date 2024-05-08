@@ -19,7 +19,7 @@ class MRUCache (BaseCaching):
     def put(self, key, item):
         """ Add item in cache dict
         """
-        if key and item:
+        if not(key and item):
             return None
         self.cache_data[key] = item
         self.move_to_end(key)
